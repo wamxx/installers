@@ -15,16 +15,14 @@ class ZeusInstaller extends BaseInstaller
 
 
             $sModuleFile = getcwd().'/app/configs/modules.php';
-            $aModules = [];
             if( file_exists($sModuleFile) )
             {
                 $aModules = include $sModuleFile;
-                var_dump($aModules);exit;
                 $aModules[$package->getName()] = [
                     'className' => $aExtra['zeus']['className'],
                     'path' => '../app/modules/'.ucfirst($aMatches[2]),
                 ];
-                file_put_contents($sModuleFile,'<?php return '.var_export($aModules,true));
+                file_put_contents($sModuleFile,'<?php return '.var_export($aModules,true).';');
             }
             else
             {
