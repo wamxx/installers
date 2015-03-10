@@ -9,13 +9,13 @@ class ZeusInstaller extends BaseInstaller
 
     public function getInstallPath(PackageInterface $package, $frameworkType = '')
     {
-        if( preg_match('#(.*)/zeus-module-(.*)#',$package->getName(),$aMatches) )
+        /*if( preg_match('#(.*)/zeus-module-(.*)#',$package->getName(),$aMatches) )
         {
             return $this->templatePath($this->locations['module'], array('name' => $aMatches[2]) );
         }
         else
-        {
+        {*/
             return parent::getInstallPath($package, $frameworkType);
-        }
+        //}
     }
 }
