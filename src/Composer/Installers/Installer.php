@@ -68,6 +68,7 @@ class Installer extends LibraryInstaller
         'zend'         => 'ZendInstaller',
         'zikula'       => 'ZikulaInstaller',
         'prestashop'   => 'PrestashopInstaller',
+        'zeus'   => 'ZeusInstaller',
     );
 
     /**
