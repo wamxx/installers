@@ -11,26 +11,26 @@ class ZeusInstaller extends BaseInstaller
     {
         if( preg_match('#(.*)/zeus-module-(.*)#',$package->getName(),$aMatches) )
         {
+            $sName = ucfirst($aMatches[2]);
+
             $aExtra = $package->getExtra();
 
+            $aModules = [];
 
             $sModuleFile = getcwd().'/app/configs/modules.php';
             if( file_exists($sModuleFile) )
             {
                 $aModules = include $sModuleFile;
-                $aModules[$package->getName()] = [
-                    'className' => $aExtra['zeus']['className'],
-                    'path' => '../app/modules/'.ucfirst($aMatches[2]),
-                ];
-                file_put_contents($sModuleFile,'<?php return '.var_export($aModules,true).';');
-            }
-            else
-            {
-
             }
 
+            $aModules[$package->getName()] = [
+                'className' => $aExtra['zeus']['className'],
+                'path' => '../app/modules/'.$sName,
+            ];
+            file_put_contents($sModuleFile,'<?php return '.var_export($aModules,true).';');
 
-            return $this->templatePath($this->locations['module'], array('name' => $aMatches[2]) );
+
+            return $this->templatePath($this->locations['module'], array('name' => $sName) );
         }
         else
         {
