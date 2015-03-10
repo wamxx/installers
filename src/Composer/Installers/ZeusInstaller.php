@@ -13,7 +13,7 @@ class ZeusInstaller extends BaseInstaller
         {
             $aExtra = $package->getExtra();
 
-            $vendorPath = $this->composer->getConfig()->get('vendor-dir');
+            $vendorPath = $this->composer->getPackage()->getTargetDir();
             var_dump(__DIR__,$vendorPath);exit;
 
             $sModuleFile = '';
