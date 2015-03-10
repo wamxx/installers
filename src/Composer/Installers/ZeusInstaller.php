@@ -15,6 +15,7 @@ class ZeusInstaller extends BaseInstaller
 
 
             $sModuleFile = getcwd().'/app/configs/modules.php';
+            $aModules = [];
             if( file_exists($sModuleFile) )
             {
                 $aModules = include $sModuleFile;
