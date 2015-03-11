@@ -22,17 +22,22 @@ class ZeusPackage
   }
 
   public static function postPackageInstall(\Composer\Script\PackageEvent $event) {
-    $installedPackage = $event->getComposer()->getPackage();
+
+    $oPackage = $event->getOperation()->getPackage();
+
+
     // any tasks to run after the package is installed?
     $io = $event->getIO();
-    if ($io->askConfirmation("Are you sure you want to proceed? ", false)) {
+    if ($io->askConfirmation("Are you sure you want to proceed? ".$oPackage->getName()." -- ".$oPackage->getType(), false)) {
       // ok, continue on to composer install
       return true;
     }
   }
 
   public static function postPackageUninstall(\Composer\Script\PackageEvent $event) {
-    $installedPackage = $event->getComposer()->getPackage();
+
+    $packageName = $event->getOperation()->getInitialPackage()->getName();
+
     // any tasks to run after the package is installed?
   }
 }
