@@ -2,9 +2,9 @@
 namespace Composer\Installers;
 use ComposerScriptEvent;
 
-class Event
+class ZeusPackage
 {
-  public static function preInstall(Event $event) {
+  public static function preInstall(Composer\Installers\Event $event) {
     // provides access to the current ComposerIOConsoleIO
     // stream for terminal input/output
     $io = $event->getIO();
@@ -16,18 +16,18 @@ class Event
     exit;
   }
 
-  public static function postInstall(Event $event) {
+  public static function postInstall(Composer\Installers\Event $event) {
     // provides access to the current Composer instance
     $composer = $event->getComposer();
     // run any post install tasks here
   }
 
-  public static function postPackageInstall(Event $event) {
+  public static function postPackageInstall(Composer\Installers\Event $event) {
     $installedPackage = $event->getComposer()->getPackage();
     // any tasks to run after the package is installed?
   }
 
-  public static function postPackageUninstall(Event $event) {
+  public static function postPackageUninstall(Composer\Installers\Event $event) {
     $installedPackage = $event->getComposer()->getPackage();
     // any tasks to run after the package is installed?
   }
