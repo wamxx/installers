@@ -1,13 +1,17 @@
 {
-    "name": "wamxx/installers",
+    "name": "minutebuzz/zeus-installers",
     "type": "composer-installer",
-    "license": "MIT",
     "description": "A multi-framework Composer library installer",
     "authors": [
         {
             "name": "Kyle Robinson Young",
             "email": "kyle@dontkry.com",
             "homepage": "https://github.com/shama"
+        },
+        {
+          "name": "Quentin MATHIS",
+          "email": "quentin@minutebuzz.com",
+          "homepage": "https://github.com/wamxx"
         }
     ],
     "autoload": {
