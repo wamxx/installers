@@ -13,7 +13,7 @@ class ZeusPackage
 
   }
 
-  public static function postPackageInstall( \Composer\Script\PackageEvent $oEvent )
+  public static function prePackageInstall( \Composer\Script\PackageEvent $oEvent )
   {
 
     $oPackage = $oEvent->getOperation()->getPackage();
@@ -21,7 +21,7 @@ class ZeusPackage
 
   }
 
-  public static function postPackageUninstall( \Composer\Script\PackageEvent $oEvent )
+  public static function prePackageUninstall( \Composer\Script\PackageEvent $oEvent )
   {
 
     $oPackage = $oEvent->getOperation()->getPackage();
